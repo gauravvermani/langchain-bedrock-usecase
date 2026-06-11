@@ -36,3 +36,74 @@ data extraction workflows.
 - **Amazon Bedrock** — Claude Haiku 4.5 (`us.anthropic.claude-haiku-4-5-20251001-v1:0`)
 - **Pydantic v2** — structured output schema validation
 - **python-dotenv** — environment-based configuration management
+
+# LangChain + Amazon Bedrock — Full Feature Project
+
+A beginner-friendly Python project demonstrating 6 key LangChain patterns
+using Claude on Amazon Bedrock. Every line of code is heavily commented.
+
+## Project Structure
+
+```
+langchain-bedrock-project/
+├── src/
+│   ├── main.py               ← RUN THIS — demos all features
+│   ├── config.py             ← settings loaded from .env
+│   ├── llm_client.py         ← builds the LangChain LLM object
+│   ├── simple_invoke.py      ← Feature 1: basic Q&A
+│   ├── prompt_chain.py       ← Feature 2: prompt templates + LCEL chains
+│   ├── chat_memory.py        ← Feature 3: multi-turn chat with memory
+│   ├── streaming.py          ← Feature 4: streaming word-by-word output
+│   ├── structured_output.py  ← Feature 5: typed JSON/Pydantic output
+│   └── summarizer.py         ← Feature 6: text summarization
+├── .env.example
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+## Quick Start
+
+```bash
+# 1. Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate        # Mac/Linux
+# .venv\Scripts\activate         # Windows
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Configure environment
+cp .env.example .env
+# Edit .env if needed (defaults are already set)
+
+# 4. Configure AWS credentials (if not already done)
+aws configure
+
+# 5. Enable model access in AWS Console
+# Bedrock → Model catalog → Claude Haiku 4.5 → Enable
+
+# 6. Run the full demo
+python src/main.py
+
+# Or run a single feature
+python src/simple_invoke.py
+python src/chat_memory.py
+python src/streaming.py
+```
+
+## Features
+
+| # | File | What It Shows |
+|---|------|---------------|
+| 1 | simple_invoke.py      | Basic LLM call — send a question, get an answer |
+| 2 | prompt_chain.py       | Prompt templates with {placeholders} + LCEL | chains |
+| 3 | chat_memory.py        | Multi-turn chat — AI remembers prior messages |
+| 4 | streaming.py          | Word-by-word streaming output |
+| 5 | structured_output.py  | Returns a Pydantic object instead of raw text |
+| 6 | summarizer.py         | Summarizes text in bullet or paragraph format |
+
+## Model
+
+`us.anthropic.claude-haiku-4-5-20251001-v1:0` — Active as of June 2026.
+Fast, affordable, excellent for all these use cases.

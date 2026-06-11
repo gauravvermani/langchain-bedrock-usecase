@@ -1,0 +1,14 @@
+# Core LangChain packages
+langchain>=0.3.0           # Main LangChain framework
+langchain-aws>=0.2.0       # AWS + Bedrock integrations (ChatBedrockConverse)
+langchain-core>=0.3.0      # Core abstractions (prompts, parsers, messages)
+
+# AWS SDK — LangChain uses this under the hood to call Bedrock
+boto3>=1.35.0
+botocore>=1.35.0
+
+# Reads the .env file into environment variables
+python-dotenv>=1.0.0
+
+# Data validation — used for structured output (Pydantic models)
+pydantic>=2.0.0
